@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.program.kill.model.mapper.ItemKillMapper">
     <resultMap id="BaseResultMap" type="com.program.kill.model.entity.ItemKill">
-        <id column="id" property="id" jdbcType="INTEGER" />
-        <result column="item_id" property="itemId" jdbcType="INTEGER" />
-        <result column="total" property="total" jdbcType="INTEGER" />
-        <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
-        <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
-        <result column="is_active" property="isActive" jdbcType="TINYINT" />
-        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="item_id" property="itemId" jdbcType="INTEGER"/>
+        <result column="total" property="total" jdbcType="INTEGER"/>
+        <result column="start_time" property="startTime" jdbcType="TIMESTAMP"/>
+        <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
+        <result column="is_active" property="isActive" jdbcType="TINYINT"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Base_Column_List">
     id, item_id, total, start_time, end_time, is_active, create_time,
@@ -139,4 +139,12 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <!--抢购商品，扣减库存-->
+    <update id="updateKillItem">
+      update item_kill
+      set total = total -1
+      where
+        id = #{killId}
+    </update>
 </mapper>

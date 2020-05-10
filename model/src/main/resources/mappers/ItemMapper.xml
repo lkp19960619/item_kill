@@ -22,7 +22,10 @@
     from item
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectAll" resultType="com.program.kill.model.entity.Item">
+      select * from item
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from item
     where id = #{id,jdbcType=INTEGER}
   </delete>

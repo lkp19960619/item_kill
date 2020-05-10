@@ -1,6 +1,10 @@
 package com.program.kill.model.mapper;
 
+import com.program.kill.model.dto.KillSuccessUserInfo;
 import com.program.kill.model.entity.ItemKillSuccess;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ItemKillSuccessMapper {
     int deleteByPrimaryKey(String code);
@@ -14,4 +18,12 @@ public interface ItemKillSuccessMapper {
     int updateByPrimaryKeySelective(ItemKillSuccess record);
 
     int updateByPrimaryKey(ItemKillSuccess record);
+
+    int countByKillUserId(@Param("killId") Integer killId, @Param("userId") Integer userId);
+
+//    KillSuccessUserInfo selectByCode(@Param("code") String code);
+//
+//    int expireOrder(@Param("code") String code);
+//
+//    List<ItemKillSuccess> selectExpireOrders();
 }

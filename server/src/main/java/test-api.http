@@ -1,0 +1,9 @@
+#1.抢购逻辑API测试
+POST http://localhost:8081/kill/kill/execute
+Content-Type: application/json
+
+{
+  "killId":4,
+  "userId":10
+}
+###
